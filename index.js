@@ -9,7 +9,11 @@ const emailOfCareerFoundry = process.env.CF_EMAIL;
 const passwordOfCareerFoundry = process.env.CF_PASSWORD;
 
 (async () => {
-  const browser = await puppeteer.launch();
+
+  const browser = await puppeteer.launch({
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  });
+
   const page = await browser.newPage();
 
   await page.goto("https://careerfoundry.com/en/login/");
