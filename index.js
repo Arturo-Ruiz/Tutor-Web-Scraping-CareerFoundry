@@ -53,10 +53,10 @@ const passwordOfCareerFoundry = process.env.CF_PASSWORD;
     console.log(textContent);
     console.log("No task of Full Stack Immersion Course");
 
-    sendEmail(
-      "Full Stack Immersion Course",
-      "No task of Full Stack Immersion Course"
-    );
+    // sendEmail(
+    //   "Full Stack Immersion Course",
+    //   "No task of Full Stack Immersion Course"
+    // );
   } catch (error) {
     await page.screenshot({ path: "NewTaskFullStack.png" });
 
@@ -92,10 +92,10 @@ const passwordOfCareerFoundry = process.env.CF_PASSWORD;
     console.log(textContent);
     console.log("No task of Intro to Frontend Development Course");
 
-    sendEmail(
-      "Intro to Frontend Development Course",
-      "No task of Intro to Frontend Development Course"
-    );
+    // sendEmail(
+    //   "Intro to Frontend Development Course",
+    //   "No task of Intro to Frontend Development Course"
+    // );
   } catch (error) {
     await page.screenshot({ path: "NewTaskIntroFrontendDevelopment.png" });
 
