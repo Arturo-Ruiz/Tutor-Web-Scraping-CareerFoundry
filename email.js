@@ -20,18 +20,24 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const mailOptions = {
-  from: mailFrom,
-  to: mailTo,
-  subject: "Asunto del correo electrónico",
-  text: "Cuerpo del mensaje en texto plano",
-  html: "Cuerpo del mensaje en HTML",
-};
+function sendEmail(subject, text) {
+  const mailOptions = {
+    from: mailFrom,
+    to: mailTo,
+    subject: subject,
+    text: text,
+  };
 
-transporter.sendMail(mailOptions, function (error, info) {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Email Send: " + info.response);
-  }
-});
+  transporter.sendMail(mailOptions, function (error, info) {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Email Send: " + info.response);
+    }
+  });
+}
+
+module.exports = {
+  transporter,
+  sendEmail,
+};

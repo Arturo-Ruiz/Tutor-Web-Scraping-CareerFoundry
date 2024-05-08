@@ -1,6 +1,8 @@
 const dotenv = require("dotenv");
 const puppeteer = require("puppeteer");
 
+const { sendEmail } = require("./email.js");
+
 dotenv.config();
 
 const emailOfCareerFoundry = process.env.CF_EMAIL;
@@ -51,11 +53,19 @@ const passwordOfCareerFoundry = process.env.CF_PASSWORD;
     console.log(textContent);
     console.log("No task of Full Stack Immersion Course");
 
-    //email send
+    sendEmail(
+      "Full Stack Immersion Course",
+      "No task of Full Stack Immersion Course"
+    );
   } catch (error) {
     await page.screenshot({ path: "NewTaskFullStack.png" });
+
     console.log("New Task of Full Stack Immersion Course");
-    //email send
+
+    sendEmail(
+      "Full Stack Immersion Course",
+      "New Task of Full Stack Immersion Course"
+    );
   }
 
   //Get Data Of Intro To Frontend Develoment
@@ -82,12 +92,19 @@ const passwordOfCareerFoundry = process.env.CF_PASSWORD;
     console.log(textContent);
     console.log("No task of Intro to Frontend Development Course");
 
-    //email send
+    sendEmail(
+      "Intro to Frontend Development Course",
+      "No task of Intro to Frontend Development Course"
+    );
   } catch (error) {
     await page.screenshot({ path: "NewTaskIntroFrontendDevelopment.png" });
 
     console.log("New Task of Intro to Frontend Development Course");
-    //email send
+
+    sendEmail(
+      "Intro to Frontend Development Course",
+      "New Task of Intro to Frontend Development Course"
+    );
   }
 
   await browser.close();
