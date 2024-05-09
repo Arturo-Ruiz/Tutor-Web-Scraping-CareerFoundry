@@ -1,7 +1,7 @@
 const dotenv = require("dotenv");
 const puppeteer = require("puppeteer");
 
-const { sendEmail } = require("./email.js");
+const { sendEmail } = require("./mail.js");
 
 dotenv.config();
 
@@ -9,10 +9,7 @@ const emailOfCareerFoundry = process.env.CF_EMAIL;
 const passwordOfCareerFoundry = process.env.CF_PASSWORD;
 
 (async () => {
-
-  const browser = await puppeteer.launch({
-    args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
 
